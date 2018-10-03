@@ -1,0 +1,16 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: hello-java-deployment
+spec:
+  replicas: 2
+  template:
+    metadata:
+      labels: # labels to select/identify the deployment
+        app: hello-java
+    spec:     # pod spec                  
+      containers: 
+      - name: hello-world-java
+        image: docker.local:5000/beer/helloworld:latest # image we pushed
+        ports:
+        - containerPort: 3000
