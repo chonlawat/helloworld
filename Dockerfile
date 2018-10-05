@@ -1,5 +1,4 @@
-FROM java:8
-WORKDIR /
+FROM openjdk:8-jre
 ADD HelloWorld.jar HelloWorld.jar
-EXPOSE 8080
-CMD java -cp HelloWorld.jar HelloWorld
+EXPOSE 8010
+ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","/app.jar"]

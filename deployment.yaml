@@ -1,21 +1,38 @@
-apiVersion: apps/v1
-kind: Deployment
+apiVersion: v1
+kind: Service
 metadata:
-  name: hello-java-deployment
+  name: shopfront
   labels:
-    app: hello-java
+    app: shopfront
 spec:
-  replicas: 3
+  type: NodePort
   selector:
-    matchLabels:
-      app: nginx
+    app: shopfront
+  ports:
+  - protocol: TCP
+    port: 8010
+    name: http
+
+---
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  name: shopfront
+spec:
+  replicas: 1
   template:
     metadata:
       labels:
-        app: nginx
+        app: shopfront
     spec:
       containers:
-      - name: hello-world-java
-        image: docker.local:5000/beer/helloworld:latest
+      - name: shopfront
+        image: beer/helloworld:latest
         ports:
-        - containerPort: 3000
+        - containerPort: 8010
+        livenessProbe:
+          httpGet:
+            path: /health
+            port: 8010
+          initialDelaySeconds: 30
+          timeoutSeconds: 1
