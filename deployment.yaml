@@ -4,8 +4,7 @@ metadata:
   name: hello-java-deployment
 spec:
   selector:
-    matchLabels:
-      app: sample-application
+    app: sample-application
   replicas: 2
   template:
     metadata:
