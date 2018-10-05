@@ -3,6 +3,9 @@ kind: Deployment
 metadata:
   name: hello-java-deployment
 spec:
+  selector:
+    matchLabels:
+      app: sample-application
   replicas: 2
   template:
     metadata:
