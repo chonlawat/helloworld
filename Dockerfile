@@ -1,3 +1,3 @@
 FROM openjdk:8-jre
-mvn clean compile
-mvn exec:java
+RUN mvn clean compile
+RUN mvn exec:java
