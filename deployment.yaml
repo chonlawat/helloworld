@@ -30,9 +30,3 @@ spec:
         image: docker.local:5000/beer/helloworld:latest
         ports:
         - containerPort: 8080
-        livenessProbe:
-          httpGet:
-            path: /health
-            port: 8010
-          initialDelaySeconds: 30
-          timeoutSeconds: 1
