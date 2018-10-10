@@ -11,6 +11,6 @@ spec:
         spec:
           containers:
           - name: demo-service
-            image: sbrosinski/demo-service
+            image: docker.local:5000/beer/helloworld:latest
             ports:
             - containerPort: 8081
