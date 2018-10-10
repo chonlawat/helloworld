@@ -29,7 +29,7 @@ spec:
       - name: helloworld
         image: docker.local:5000/beer/helloworld:latest
         ports:
-        - containerPort: 8010
+        - containerPort: 8080
         livenessProbe:
           httpGet:
             path: /health
