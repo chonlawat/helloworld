@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
     name: demo-service-deployment
 spec:
-    replicas: 2 # tells deployment to run 2 pods matching the template
+    replicas: 1 # tells deployment to run 2 pods matching the template
     template: # create pods using pod definition in this template
         metadata:
           labels:
@@ -12,5 +12,6 @@ spec:
           containers:
           - name: demo-service
             image: docker.local:5000/myapp:latest
+            command: [ "/bin/bash", "-ce", "tail -f /dev/null" ]
             ports:
             - containerPort: 8081
