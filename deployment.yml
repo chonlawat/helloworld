@@ -12,6 +12,6 @@ spec:
           containers:
           - name: demo-service
             image: docker.local:5000/myapp:latest
-            command: [ "/bin/bash", "-ce", "tail -f /dev/null" ]
+            #command: [ "/bin/bash", "-ce", "tail -f /dev/null" ]
             ports:
             - containerPort: 3001
